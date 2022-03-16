@@ -7,8 +7,8 @@ defineProps<{
 
 <template>
   <div
-    class="absolute text-5xl"
-    :style="{ top: `${top * 6}vmin`, left: `${left * 6}vmin` }"
+    class="absolute text-5xl transform transition-transform"
+    :style="{ '--tw-translate-y': `${top * 6}vmin`, '--tw-translate-x': `${left * 6}vmin` }"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

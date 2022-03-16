@@ -14,7 +14,7 @@ const plus = computed(() => {
 </script>
 
 <template>
-  <div class="p-1/10" :style="{ 'background-color': color, 'grid-area': `s${area}` }">
+  <div v-bind="$attrs" class="p-1/10" :style="{ 'background-color': color, 'grid-area': `s${area}` }">
     <div class="bg-white grid grid-cols-2 grid-rows-2 h-full w-full rounded-xl items-center justify-items-center">
       <SpotCell
         v-for="index in 4"
@@ -42,4 +42,5 @@ const plus = computed(() => {
       />
     </div>
   </div>
+  <slot />
 </template>
