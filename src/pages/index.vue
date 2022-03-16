@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PawnsSpot from '~/components/organisms/PawnsSpot.vue';
 import BoardCell from '~/components/atoms/BoardCell.vue';
+import Piramid from '~/components/atoms/Pyramid.vue';
 
 const colors = ['#07A14D','#FFDD07','#EE1F29','#27429A'];
 
@@ -18,7 +19,16 @@ const isRed = (num: number) => {
 };
 const isBlue = (num: number) => {
   const inside = [37, 38, 39, 40, 41, 53];
-  return inside.includes(num) ? colors[3] : 'white';
+  return inside.includes(num) ? colors[3] : isGray(num);
+};
+const isGray = (num: number) => {
+  const inside = [4, 29, 44, 69];
+  return inside.includes(num) ? '#b7b7b7' : 'white';
+};
+
+const isStar = (num: number) => {
+  const inside = [4, 29, 44, 69, 6, 67, 53, 20];
+  return inside.includes(num);
 };
 
 </script>
@@ -36,8 +46,12 @@ const isBlue = (num: number) => {
         v-for="index in 72"
         :key="index"
         :style="{ 'background-color': isGreen(index) }"
-      />
-      <div style="grid-area: s5" />
+      >
+        <p v-if="isStar(index)" class="text-center pt-3 font-bold text-white text-2xl">
+          S
+        </p>
+      </BoardCell>
+      <Piramid style="grid-area: s5" />
     </div>
   </div>
 </template>
