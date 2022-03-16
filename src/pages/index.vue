@@ -2,6 +2,7 @@
 import PawnsSpot from '~/components/organisms/PawnsSpot.vue';
 import BoardCell from '~/components/atoms/BoardCell.vue';
 import Piramid from '~/components/atoms/Pyramid.vue';
+import Pawn from '~/components/atoms/Pawn.vue';
 
 const colors = ['#07A14D','#FFDD07','#EE1F29','#27429A'];
 
@@ -35,12 +36,12 @@ const isStar = (num: number) => {
 
 <template>
   <div class="h-screen w-screen bg-gray-200 flex items-center justify-center">
-    <div class="bg-gray-400 grid grid-cols-15 grid-rows-15 board h-[90vmin] w-[90vmin] rounded-xl overflow-hidden">
+    <div class="bg-gray-400 grid grid-cols-15 grid-rows-15 board h-[90vmin] w-[90vmin] rounded-xl overflow-hidden relative">
       <PawnsSpot
         v-for="(color, index) in colors"
         :key="color"
         :color="color"
-        :area="`s${index+1}`"
+        :area="index+1"
       />
       <BoardCell
         v-for="index in 72"
@@ -52,6 +53,7 @@ const isStar = (num: number) => {
         </p>
       </BoardCell>
       <Piramid style="grid-area: s5" />
+      <Pawn :left="4" :top="1" />
     </div>
   </div>
 </template>

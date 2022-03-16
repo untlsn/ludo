@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     BoardCell: typeof import('./components/atoms/BoardCell.vue')['default']
+    Pawn: typeof import('./components/atoms/Pawn.vue')['default']
     PawnsSpot: typeof import('./components/organisms/PawnsSpot.vue')['default']
     Piramid: typeof import('./components/atoms/Pyramid.vue')['default']
     Pyramid: typeof import('./components/atoms/Pyramid.vue')['default']
